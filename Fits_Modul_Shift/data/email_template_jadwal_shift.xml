@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- Pastikan model sudah terdaftar -->
+    <record id="model_jadwal_shift_karyawan" model="ir.model">
+      <field name="name">Jadwal Shift Karyawan</field>
+      <field name="model">jadwal.shift.karyawan</field>
+    </record>
+
+    <!-- Email Template -->
+    <record id="email_template_jadwal_shift" model="mail.template">
+  <field name="name">Email Notifikasi Jadwal Shift</field>
+  <field name="model_id" ref="model_jadwal_shift_karyawan"/>
+  <field name="subject">${object.shift_id.name} - Jadwal Shift Anda pada ${format_datetime(object.tanggal, "%d-%m-%Y")}</field>
+  <field name="email_from">"My Company" &lt;kesalahandalamhati@gmail.com&gt;</field>
+  <field name="email_to">${object.employee_id.work_email}</field>
+  <field name="body_html">
+    <![CDATA[
+      <html>
+        <body>
+          <p>Halo ${object.employee_id.name},</p>
+
+          <p>Anda dijadwalkan untuk shift berikut:</p>
+          <ul>
+            <li><strong>Shift:</strong> ${object.shift_id.name}</li>
+            <li><strong>Tanggal:</strong> ${format_datetime(object.tanggal, "%d-%m-%Y")}</li>
+             <li><strong>Mode Kerja:</strong> ${dict(object._fields['mode_kerja'].selection).get(object.mode_kerja) or ''}</li>
+          </ul>
+
+          <p>Silakan login ke sistem untuk melihat detail lengkapnya.</p>
+          <p>Terima kasih,<br/>HRD Team</p>
+        </body>
+      </html>
+  ]]></field>
+  <field name="auto_delete" eval="True"/>
+</record>
+
+
+  </data>
+</odoo>

@@ -1,0 +1,88 @@
+<odoo>
+    <data>
+        <!-- List View -->
+        <record id="view_jadwal_shift_list" model="ir.ui.view">
+            <field name="name">jadwal.shift.karyawan.list</field>
+            <field name="model">jadwal.shift.karyawan</field>
+            <field name="arch" type="xml">
+                <list string="Jadwal Shift">
+                    <field name="tanggal"/>
+                    <field name="employee_id"/>
+                    <field name="shift_id"/>
+                    <!-- <field name="mode_kerja"/> -->
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_jadwal_shift_form" model="ir.ui.view">
+            <field name="name">jadwal.shift.karyawan.form</field>
+            <field name="model">jadwal.shift.karyawan</field>
+            <field name="arch" type="xml">
+                <form string="Jadwal Shift">
+                     <header>
+                        <button name="open_wizard_massal" type="object"
+                                string="Bulk Entry"
+                                class="oe_highlight"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+                        <!-- <button name="print_pdf" type="object"
+                                string="Print Schedule"
+                                class="btn-secondary"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+                    </header>
+
+                    <sheet>
+                        <group>
+                            <field name="tanggal"/>
+                            <field name="employee_id"/>
+                            <field name="shift_id" domain="[('aktif','=',True)]"/>
+                            <!-- <field name="mode_kerja"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Kanban View -->
+        <record id="view_jadwal_shift_kanban" model="ir.ui.view">
+            <field name="name">jadwal.shift.karyawan.kanban</field>
+            <field name="model">jadwal.shift.karyawan</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <strong><field name="name"/></strong><br/>
+                                <span><field name="tanggal"/></span><br/>
+                                <!-- <field name="mode_kerja"/> -->
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!-- Calendar View -->
+        <record id="view_jadwal_shift_calendar" model="ir.ui.view">
+            <field name="name">jadwal.shift.karyawan.calendar</field>
+            <field name="model">jadwal.shift.karyawan</field>
+            <field name="arch" type="xml">
+                <calendar string="Jadwal Shift" date_start="tanggal" color="employee_id">
+                    <field name="name"/>
+                    <field name="employee_id"/>
+                    <!-- <field name="mode_kerja"/> -->
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Action Window -->
+        <record id="action_jadwal_shift" model="ir.actions.act_window">
+            <field name="name">Calender</field>
+            <field name="res_model">jadwal.shift.karyawan</field>
+            <field name="view_mode">calendar,list,form,kanban</field>
+            <field name="groups_id" eval="[(4, ref('Fits_Modul_Shift.group_shifting_manager'))]"/>
+        </record>
+    </data>
+</odoo>

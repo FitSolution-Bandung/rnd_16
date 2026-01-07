@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_report_jadwal_wizard_form" model="ir.ui.view">
+        <field name="name">report.jadwal.wizard.form</field>
+        <field name="model">report.jadwal.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Filter Report Jadwal Shift">
+                <group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <group>
+                        <field name="all_employee"/>
+                        <field name="employee_id"/>
+                        <field name="department_id"/>
+                        <field name="tag_ids" widget="many2many_tags"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print_report" type="object" string="Print PDF" class="btn-primary"/>
+                    <button string="Cancelled" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action untuk membuka wizard -->
+    <record id="action_report_jadwal_wizard" model="ir.actions.act_window">
+        <field name="name">Report Schedule</field>
+        <field name="res_model">report.jadwal.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

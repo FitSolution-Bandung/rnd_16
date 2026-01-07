@@ -1,0 +1,63 @@
+/* Gaya tampilan untuk Form View shift.karyawan */
+.o_form_view .o_form_sheet {
+    background-color: white;
+    border-radius: 1px;
+    padding: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Label form */
+.o_form_view .o_form_label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Field form */
+.o_form_view input,
+.o_form_view select,
+.o_form_view textarea {
+    border: 1px solid #d3dce6;
+    border-radius: 1px;
+    padding: 6px 10px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.o_form_view input:focus,
+.o_form_view select:focus,
+.o_form_view textarea:focus {
+    border-color: #3399ff;
+    box-shadow: 0 0 4px rgba(51, 153, 255, 0.3);
+}
+
+/* Gaya tampilan untuk List View shift.karyawan */
+.o_list_view table.o_list_view_table thead {
+    background-color: #005fa3;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.o_list_view .o_data_row {
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.o_list_view .o_data_row:hover {
+    background-color: #eef5fb;
+    transform: scale(1.002);
+}
+
+/* Tambahan padding dan font untuk cell */
+.o_list_view .o_data_cell {
+    padding: 8px 12px;
+    font-size: 13px;
+}
+
+/* Gaya border dan shadow pada tabel */
+.o_list_view table.o_list_view_table {
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border-radius: 1px;
+    overflow: hidden;
+}
+

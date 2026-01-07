@@ -1,0 +1,39 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_shift_karyawan_user,access.shift.karyawan.user,model_shift_karyawan,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+access_shift_karyawan_manager,access.shift.karyawan.manager,model_shift_karyawan,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+
+access_jadwal_shift_manager,access_jadwal_shift_manager,model_jadwal_shift_karyawan,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_jadwal_shift_user,access_jadwal_shift_user,model_jadwal_shift_karyawan,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+access_jadwal_shift_wizard_manager,jadwal.shift.wizard,Fits_Modul_Shift.model_jadwal_shift_wizard,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+
+access_tukar_shift_karyawan_user,access_tukar_shift_karyawan_user,model_tukar_shift_karyawan,Fits_Modul_Shift.group_shifting_user,1,1,1,0
+access_tukar_shift_karyawan_manager,access_tukar_shift_karyawan_manager,model_tukar_shift_karyawan,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_tukar_shift_history,access_tukar_shift_history,model_tukar_shift_karyawan_history,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+
+access_riwayat_shift_karyawan,access_riwayat_shift_karyawan,model_riwayat_shift_karyawan,base.group_user,1,1,1,1
+access_shift_statistik_user,access_shift_statistik_user,model_shift_statistik,base.group_user,1,0,0,0
+
+access_shift_laporan_user,access.shift.laporan.user,model_shift_laporan,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+access_shift_laporan_line_user,access.shift.laporan.line.user,model_shift_laporan_line,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+access_shift_laporan_rekap_user,access.shift.laporan.rekap.user,model_shift_laporan_rekap,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+
+access_shift_laporan_manager,access.shift.laporan.manager,model_shift_laporan,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_shift_laporan_line_manager,access.shift.laporan.line.manager,model_shift_laporan_line,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_shift_laporan_rekap_manager,access.shift.laporan.rekap.manager,model_shift_laporan_rekap,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+
+access_shift_request_user,access.shift.request.user,model_shift_request,Fits_Modul_Shift.group_shifting_user,1,1,1,0
+access_shift_request_manager,access.shift.request.manager,model_shift_request,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+
+access_hari_minggu_user,hari.minggu user,model_hari_minggu,base.group_user,1,1,1,1
+access_gender_reference_user,access_gender_reference_user,model_gender_reference,base.group_user,1,1,1,1
+
+access_report_jadwal_shift_manager,access.report.jadwal.shift.manager,model_jadwal_shift_karyawan,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_report_jadwal_shift_user,access.report.jadwal.shift.user,model_jadwal_shift_karyawan,Fits_Modul_Shift.group_shifting_user,1,0,0,0
+
+
+access_shift_pattern_user,shift.configuration.pattern user,model_shift_configuration_pattern,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_shift_pattern_manager,shift.configuration.pattern manager,model_shift_configuration_pattern,Fits_Modul_Shift.group_shifting_user,1,1,1,1
+
+access_report_jadwal_wizard_manager,access.report.jadwal.wizard.manager,model_report_jadwal_wizard,Fits_Modul_Shift.group_shifting_manager,1,1,1,1
+access_report_jadwal_wizard_user,access.report.jadwal.wizard.user,model_report_jadwal_wizard,Fits_Modul_Shift.group_shifting_user,1,0,0,0

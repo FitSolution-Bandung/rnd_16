@@ -1,0 +1,30 @@
+.my-kanban-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 1px;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.my-kanban-box:hover {
+    transform: scale(1.02);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.kanban-header {
+    font-size: 16px;
+    color: #343a40;
+    margin-bottom: 8px;
+}
+
+.kanban-body div {
+    font-size: 13px;
+    color: #495057;
+    margin-bottom: 4px;
+}
+
+.kanban-body i {
+    margin-right: 5px;
+    color: #6c757d;
+}

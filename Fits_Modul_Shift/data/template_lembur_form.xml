@@ -1,0 +1,17 @@
+<template id="template_lembur_form" name="Hasil Konfirmasi Lembur">
+    <t t-call="website.layout">
+        <div class="container mt-5 mb-5">
+            <h2>Konfirmasi Lembur</h2>
+            <div class="alert alert-info" role="alert">
+                <t t-esc="message"/>
+            </div>
+            <p><strong>Karyawan:</strong> <t t-esc="record.karyawan_id.name"/></p>
+            <p><strong>Tanggal:</strong> <t t-esc="record.tanggal"/></p>
+            <p><strong>Durasi Jam:</strong> <t t-esc="record.durasi_jam"/></p>
+            <p><strong>Persetujuan Lembur:</strong>
+                <t t-esc="record.lembur_disetujui"/>
+            </p>
+            <a href="/" class="btn btn-primary mt-3">Kembali ke Beranda</a>
+        </div>
+    </t>
+</template>

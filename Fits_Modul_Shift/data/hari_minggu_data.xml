@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="hari_senin" model="hari.minggu">
+        <field name="name">senin</field>
+    </record>
+    <record id="hari_selasa" model="hari.minggu">
+        <field name="name">selasa</field>
+    </record>
+    <record id="hari_rabu" model="hari.minggu">
+        <field name="name">rabu</field>
+    </record>
+    <record id="hari_kamis" model="hari.minggu">
+        <field name="name">kamis</field>
+    </record>
+    <record id="hari_jumat" model="hari.minggu">
+        <field name="name">jumat</field>
+    </record>
+    <record id="hari_sabtu" model="hari.minggu">
+        <field name="name">sabtu</field>
+    </record>
+    <record id="hari_minggu" model="hari.minggu">
+        <field name="name">minggu</field>
+    </record>
+</odoo>

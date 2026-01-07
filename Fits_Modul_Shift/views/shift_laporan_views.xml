@@ -1,0 +1,76 @@
+<odoo>
+    <!-- List View -->
+    <record id="view_shift_laporan_list" model="ir.ui.view">
+        <field name="name">shift.laporan.list</field>
+        <field name="model">shift.laporan</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="jenis_laporan"/>
+                <field name="periode_awal"/>
+                <field name="periode_akhir"/>
+                <field name="total_karyawan"/>
+                <field name="total_shift"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_shift_laporan_form" model="ir.ui.view">
+        <field name="name">shift.laporan.form</field>
+        <field name="model">shift.laporan</field>
+        <field name="arch" type="xml">
+            <form string="Report Shift">
+                <sheet>
+                    <group>
+                        <field name="jenis_laporan" string="Report type"/>
+                        <field name="periode_awal" string="Early period"/>
+                        <field name="periode_akhir" stirng="Final period"/>
+                        <button name="action_generate" type="object" string="Generate Report"
+                                class="btn-primary"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/>
+                    </group>
+                    <group string="Summary">
+                        <field name="total_karyawan" readonly="1"/>
+                        <field name="total_shift" readonly="1"/>
+                        <field name="total_hadir" readonly="1"/>
+                        <!-- <field name="total_lembur" readonly="1"/> -->
+
+                        <field name="total_terlambat" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Details Shift">
+                            <field name="line_ids">
+                                <list>
+                                    <field name="tanggal" string="date"/>
+                                    <field name="employee_id" string="Employees"/>
+                                    <field name="shift_type" string="Shift type"/>
+                                    <field name="durasi_jam" string="Hour duration"/>
+                                    <!-- <field name="status_kehadiran"/> -->
+                                    <!-- <field name="mode_kerja"/> -->
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Recap per Employee">
+                            <field name="rekap_ids">
+                                <list>
+                                    <field name="employee_id" string="Employees"/>
+                                    <field name="total_hadir" string="Totally Present"/>
+                                    <field name="total_alfa" string="Totally Alfa"/>
+                                    <!-- <field name="total_lembur"/> -->
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_shift_laporan" model="ir.actions.act_window">
+        <field name="name">Report</field>
+        <field name="res_model">shift.laporan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>

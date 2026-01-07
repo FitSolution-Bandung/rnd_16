@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Menu Induk -->
+        <menuitem 
+            id="menu_shift_root"
+            name="Fits Manajemen Shift"
+            sequence="10"
+            groups="Fits_Modul_Shift.group_shifting_user,Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Submenu Jadwal Shift -->
+        <menuitem 
+            id="menu_shift_jadwal"
+            name="Planning"
+            parent="menu_shift_root"
+            sequence="10"
+            groups="Fits_Modul_Shift.group_shifting_user,Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Submenu Calendar -->
+        <menuitem
+            id="menu_jadwal_shift"
+            name="Calendar"
+            parent="menu_shift_jadwal"
+            sequence="15"
+            action="action_jadwal_shift"
+            groups="Fits_Modul_Shift.group_shifting_user,Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Submenu Shift Request -->
+        <menuitem 
+            id="menu_request_shift"
+            name="Shift Request"
+            parent="menu_shift_jadwal"
+            sequence="20"
+            action="action_request_shift"
+            groups="Fits_Modul_Shift.group_shifting_user,Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Submenu Switch Shift -->
+        <menuitem 
+            id="menu_shift_tukar"
+            name="Switch Shift"
+            parent="menu_shift_jadwal"
+            sequence="25"
+            action="action_tukar_shift"
+            groups="Fits_Modul_Shift.group_shifting_user,Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Menu Riwayat Shift -->
+        <!-- <menuitem 
+            id="menu_riwayat_shift"
+            name="Riwayat"
+            parent="menu_shift_root"
+            sequence="30"
+            action="action_riwayat_shift"
+            groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+
+        <!-- Menu Statistik Shift -->
+        <!-- <menuitem 
+            id="menu_shift_statistik"
+            name="Statistics"
+            parent="menu_shift_root"
+            sequence="30"
+            action="action_shift_statistik"
+            groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+
+        <!-- Menu Laporan Shift -->
+        <menuitem 
+            id="menu_shift_laporan"
+            name="Report"
+            parent="menu_shift_root"
+            sequence="35"
+            groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+         <menuitem 
+            id="menu_shift_laporan_main"
+            name="Report"
+            parent="menu_shift_laporan"
+            sequence="37"
+            action="action_shift_laporan"
+            groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+           <!-- Menu baru di bawah menu Report -->
+        <menuitem 
+            id="menu_report_jadwal_shift"
+            name="Report Schedule"
+            parent="menu_shift_laporan"
+            sequence="38"
+            action="action_report_jadwal_wizard"
+            groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Menu Konfigurasi Shift (parent tanpa action) -->
+        <menuitem 
+            id="menu_shift_configurasi"
+            name="Configuration"
+            parent="menu_shift_root"
+            sequence="40"
+            groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+        <!-- Submenu Konfigurasi Shift -->
+        <menuitem 
+            id="menu_konfigurasi_jadwal"
+            name="Shift Config"
+            parent="menu_shift_configurasi"
+            action="action_shift"
+            sequence="1"
+            groups="Fits_Modul_Shift.group_shifting_manager"/>
+
+        <menuitem 
+            id="menu_shift_pattern"
+            name="Shift Patterns"
+            parent="menu_shift_configurasi"
+            action="action_shift_pattern"
+            sequence="2"/>
+    </data>
+</odoo>

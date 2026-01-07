@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="gender_ref_male" model="gender.reference">
+            <field name="name">male</field>
+        </record>
+        <record id="gender_ref_female" model="gender.reference">
+            <field name="name">female</field>
+        </record>
+        <record id="gender_ref_other" model="gender.reference">
+            <field name="name">other</field>
+        </record>
+    </data>
+</odoo>

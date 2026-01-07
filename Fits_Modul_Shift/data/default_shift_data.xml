@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="shift_pagi" model="shift.karyawan">
+    <field name="name">Shift Pagi</field>
+    <field name="jam_mulai" eval="8.0"/>        <!-- 08:30 -->
+    <field name="jam_selesai" eval="17.0"/>     <!-- 17:30 -->
+    <field name="lintas_hari" eval="False"/>
+    <field name="jenis_shift">pagi</field>
+    <field name="mode_kerja">wfo</field>
+</record>
+
+
+        <record id="shift_sore" model="shift.karyawan">
+    <field name="name">Shift Sore</field>
+    <field name="jam_mulai" eval="15.0"/>
+    <field name="jam_selesai" eval="23.0"/>
+    <field name="lintas_hari" eval="True"/>
+    <field name="jenis_shift">sore</field>
+    <field name="mode_kerja">wfo</field>
+</record>
+
+
+        <record id="shift_sore" model="shift.karyawan">
+    <field name="name">Shift Sore</field>
+    <field name="jam_mulai" eval="22.0"/>
+    <field name="jam_selesai" eval="6.0"/>
+    <field name="lintas_hari" eval="True"/>
+    <field name="jenis_shift">sore</field>
+    <field name="mode_kerja">wfo</field>
+</record>
+
+    </data>
+</odoo>

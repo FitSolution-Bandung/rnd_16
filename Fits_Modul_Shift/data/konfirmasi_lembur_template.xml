@@ -1,0 +1,26 @@
+<template id="konfirmasi_lembur_template" name="Konfirmasi Lembur">
+    <t t-call="website.layout">
+        <div class="container mt-5 mb-5">
+            <div class="alert alert-info">
+                <h4 class="alert-heading mb-3">Konfirmasi Lembur</h4>
+
+                <t t-if="message">
+                    <p class="mb-3" t-esc="message"/>
+                    <hr/>
+                </t>
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <strong>Karyawan:</strong> <t t-esc="record.karyawan_id.name"/>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Tanggal:</strong> <t t-esc="record.tanggal"/>
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Durasi Jam:</strong> <t t-esc="record.durasi_jam"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </t>
+</template>

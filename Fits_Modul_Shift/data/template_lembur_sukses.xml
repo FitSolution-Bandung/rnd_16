@@ -1,0 +1,22 @@
+<template id="template_lembur_sukses" name="Halaman Sukses Lembur">
+    <t t-call="website.layout">
+        <div class="container mt-5 mb-5">
+            <t t-if="approve == '1'">
+                <h2>Persetujuan Lembur</h2>
+                <p>Anda telah menyetujui lembur ini. Silakan isi form berikut untuk melengkapi data:</p>
+                <form action="/lembur/lanjut" method="post">
+                    <input type="hidden" name="record_id" t-att-value="record.id"/>
+                    <div class="form-group">
+                        <label for="catatan">Catatan</label>
+                        <textarea name="catatan" id="catatan" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-2">Simpan</button>
+                </form>
+            </t>
+            <t t-elif="approve == '0'">
+                <h2>Persetujuan Lembur</h2>
+                <p>❌ Anda telah menolak lembur ini.</p>
+            </t>
+        </div>
+    </t>
+</template>

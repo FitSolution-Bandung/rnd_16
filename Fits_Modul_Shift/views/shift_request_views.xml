@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- List View -->
+        <record id="view_shift_request_list" model="ir.ui.view">
+            <field name="name">shift.request.list</field>
+            <field name="model">shift.request</field>
+            <field name="arch" type="xml">
+                <list string="Shift Requests" default_order="tanggal_permohonan desc">
+                    <field name="tanggal_permohonan"/>
+                    <field name="employee_pengaju"/>
+                    <field name="shift_id"/>
+                    <field name="alasan"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_shift_request_form" model="ir.ui.view">
+            <field name="name">shift.request.form</field>
+            <field name="model">shift.request</field>
+            <field name="arch" type="xml">
+                <form string="Shift Request">
+                   <header>
+                        <button name="action_submit" string="Submit" type="object"
+                                class="btn-primary"
+                                invisible="status != 'draft'"/>
+                        
+                        <!-- Hanya admin dan manager -->
+                        <button name="action_approve" string="Approve" type="object"
+                                class="btn-primary"
+                                invisible="status != 'submitted'"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/>
+                        
+                        <button name="action_reject" string="Reject" type="object"
+                                class="btn-secondary"
+                                invisible="status != 'submitted'"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/>
+                        
+                        <!-- Tombol Set to Draft -->
+                        <button name="action_set_draft" string="Set to Draft" type="object"
+                                class="btn-secondary"
+                                invisible="status not in ['approved','rejected']"
+                                groups="Fits_Modul_Shift.group_shifting_manager"/>
+                        
+                         <field name="status" widget="statusbar"
+                                statusbar_visible="draft,submitted,approved,rejected"/>
+                    </header>
+
+                    <sheet>
+                            <group>
+                                <field name="tanggal_permohonan"
+                                       readonly="status in ('approved','rejected')"/>
+
+                                <field name="employee_pengaju"
+                                       readonly="employee_pengaju_readonly"/>
+                                  <!-- untuk user -->
+                                <!-- <field name="employee_pengaju" 
+                                       readonly="status in ('approved','rejected','draft')" 
+                                       groups="Fits_Modul_Shift.group_shifting_user"/> -->
+                                 <!-- untuk manager -->
+                                <!-- <field name="employee_pengaju" 
+                                       readonly="status in ('approved','rejected')" 
+                                       groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+                                <field name="shift_id" 
+                                       domain="[('aktif','=',True)]"
+                                       readonly="status in ('approved','rejected')"/>
+                                <field name="alasan" 
+                                       readonly="status in ('approved','rejected')"/>
+                            </group>
+                    </sheet>
+                      <!-- Tambahkan Chatter -->
+                    <chatter>
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </chatter>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_request_shift" model="ir.actions.act_window">
+            <field name="name">Shift Requests</field>
+            <field name="res_model">shift.request</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Make your first wish
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- Group for Approval Permission -->
+    <!-- <record id="group_tukar_shift_manager" model="res.groups">
+      <field name="name">Tukar Shift Manager</field>
+      <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record> -->
+
+    <!-- Form View -->
+    <record id="view_tukar_shift_form" model="ir.ui.view">
+      <field name="name">tukar.shift.karyawan.form</field>
+      <field name="model">tukar.shift.karyawan</field>
+      <field name="arch" type="xml">
+        <form string="Tukar Shift">
+          <header>
+            <button name="action_submit" type="object" string="Submit"
+                    class="btn-primary"
+                    invisible="not show_btn_submit"/>
+            <button name="action_approve" type="object" string="Approve"
+                    class="btn-primary"
+                    groups="Fits_Modul_Shift.group_shifting_manager"
+                    invisible="not show_btn_approve_reject"/>
+            <button name="action_reject" type="object" string="Reject"
+                    class="btn-secondary"
+                    groups="Fits_Modul_Shift.group_shifting_manager"
+                    invisible="not show_btn_approve_reject"/>
+            <button name="action_set_draft" type="object" string="Set to Draft"
+                    class="btn-secondary"
+                    groups="Fits_Modul_Shift.group_shifting_manager"
+                    invisible="not show_btn_set_draft"/>
+             <field name="status" readonly="1" widget="statusbar"
+                    statusbar_visible="draft,submited,approved,rejected"/>
+          </header>
+          <sheet>
+            <group col="1">
+              <field name="tanggal_permohonan" 
+                     readonly="status in ('approved','rejected')"/>
+              <field name="employee_pengganti" 
+                     readonly="status in ('approved','rejected')"/>
+              <field name="jadwal_shift_pengganti"
+                     domain="[('employee_id','=',employee_pengganti), ('tanggal','=',tanggal_permohonan)]"
+                     invisible="shift_type == 'oncall'"
+                     required="shift_type != 'oncall'"
+                     readonly="status in ('approved','rejected')"/>
+                     <!-- employee manager -->
+              <!-- <field name="employee_pengaju" 
+                     readonly="status in ('approved','rejected')"
+                     groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+              <!-- <field name="jadwal_shift_pengaju"
+                     domain="[('employee_id','=',employee_pengaju), ('tanggal','=',tanggal_permohonan)]"
+                     readonly="status in ('approved','rejected')"
+                     groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+                     <!-- employee user -->
+              <field name="employee_pengaju" readonly="employee_readonly"/>
+                     <!-- readonly="status in ('approved','rejected','draft','submited')"
+                     groups="Fits_Modul_Shift.group_shifting_user" -->
+              <field name="jadwal_shift_pengaju" readonly="employee_readonly"/>
+                     <!-- domain="[('employee_id','=',employee_pengaju), ('tanggal','=',tanggal_permohonan)]"
+                     readonly="status in ('approved','rejected','draft','submited')"
+                     groups="Fits_Modul_Shift.group_shifting_user" -->
+
+              <field name="shift_type" 
+                     readonly="status in ('approved','rejected')"/>
+              <field name="alasan" 
+                     readonly="status in ('approved','rejected')"/>
+            </group>
+          </sheet>
+          <!-- Tambahkan Chatter -->
+          <chatter>
+            <field name="message_follower_ids" widget="mail_followers"/>
+            <field name="activity_ids" widget="mail_activity"/>
+          </chatter>
+        </form>
+      </field>
+    </record>
+
+    <!-- List View -->
+    <record id="view_tukar_shift_list" model="ir.ui.view">
+      <field name="name">tukar.shift.karyawan.list</field>
+      <field name="model">tukar.shift.karyawan</field>
+      <field name="arch" type="xml">
+        <list string="Tukar Shift">
+          <field name="name"/>
+          <field name="tanggal_permohonan"/>
+          <field name="employee_pengganti"/>
+          <field name="employee_pengaju"/>
+          <field name="shift_type"/>
+          <field name="status"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- History list View -->
+    <record id="view_tukar_shift_history_list" model="ir.ui.view">
+      <field name="name">tukar.shift.karyawan.history.list</field>
+      <field name="model">tukar.shift.karyawan.history</field>
+      <field name="arch" type="xml">
+        <list string="History Tukar Shift">
+          <field name="tukar_shift_id"/>
+          <field name="employee_pengganti"/>
+          <field name="employee_pengaju"/>
+          <field name="shift_type_backup"/>
+          <field name="tanggal_backup"/>
+          <field name="status_backup"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Action Window Tukar Shift -->
+    <record id="action_tukar_shift" model="ir.actions.act_window">
+      <field name="name">Switch shift</field>
+      <field name="res_model">tukar.shift.karyawan</field>
+      <field name="view_mode">list,form</field>
+      <field name="help" type="html">
+        <p class="o_view_nocontent_smiling_face">
+          Add a shift switch request here
+        </p>
+      </field>
+    </record>
+
+    <!-- Action Window History -->
+    <record id="action_tukar_shift_history" model="ir.actions.act_window">
+      <field name="name">History Tukar Shift</field>
+      <field name="res_model">tukar.shift.karyawan.history</field>
+      <field name="view_mode">list</field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+          <!-- Kategori Modul: Shifting -->
+        <record id="module_category_shifting" model="ir.module.category">
+            <field name="name">Shifting</field>
+            <field name="parent_id" ref="base.module_category_human_resources"/>
+            <field name="sequence">20</field>
+        </record>
+
+        <record id="group_shifting_user" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="module_category_shifting"/>
+        </record>
+
+        <record id="group_shifting_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="module_category_shifting"/>
+            <!-- Opsional, bisa implied manager group -->
+            <field name="implied_ids" eval="[(4, ref('group_shifting_user'))]"/>
+        </record>
+        
+    </data>
+</odoo>

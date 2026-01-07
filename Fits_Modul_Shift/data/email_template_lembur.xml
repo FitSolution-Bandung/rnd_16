@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- Tambahkan ir.model bila belum ada -->
+    <record id="model_riwayat_shift_karyawan" model="ir.model">
+        <field name="name">Riwayat Shift Karyawan</field>
+        <field name="model">riwayat.shift.karyawan</field>
+    </record>
+
+    <!-- Template email lembur -->
+    <record id="email_template_lembur" model="mail.template">
+      <field name="name">Email Notifikasi Lembur</field>
+      <field name="model_id" ref="model_riwayat_shift_karyawan"/>
+      <field name="subject">[Notifikasi Lembur] ${object.karyawan_id.name}</field>
+      <field name="email_from">"My Company" &lt;kesalahandalamhati@gmail.com&gt;</field>
+      <field name="email_to">${object.karyawan_id.work_email}</field>
+      <field name="auto_delete" eval="True"/>
+      <field name="body_html">
+    <![CDATA[
+      <p>Halo <t t-esc="object.karyawan_id.name"/>!</p>
+
+      <p>Pada tanggal <strong><t t-esc="object.tanggal"/></strong>, Anda tercatat bekerja selama <strong><t t-esc="object.durasi_jam"/></strong>, melebihi batas waktu 8 jam 30 menit.</p>
+
+      <p><strong>Status Kehadiran:</strong>
+        <t t-esc="object._fields['status_kehadiran'].convert_to_display_name(object, object.status_kehadiran)"/>
+      </p>
+
+      <p><strong>Persetujuan Lembur:</p>
+
+        <p>
+            <a t-att-href="object.get_lembur_confirm_url(True)">✅ Setujui</a> |
+            <a t-att-href="object.get_lembur_confirm_url(False)">❌ Tolak</a>
+        </p>
+
+      <p>Terima kasih.<br/>HR Department</p>
+    ]]>
+    </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <!-- Inherit Tree -->
+    <record id="view_hr_attendance_tree_inherit_shift" model="ir.ui.view">
+        <field name="name">hr.attendance.tree.inherit.shift</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='check_out']" position="after">
+                <field name="shift_type" string="Shift"/>
+            </xpath>
+        </field>
+    </record>
+        <!-- Inherit Form -->
+    <record id="view_hr_attendance_form_inherit_shift" model="ir.ui.view">
+        <field name="name">hr.attendance.form.inherit.shift</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='check_out']" position="after">
+                <field name="shift_type" string="Shift"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

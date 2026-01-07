@@ -1,0 +1,54 @@
+<odoo>
+    <!-- List View -->
+    <record id="view_shift_statistik_list" model="ir.ui.view">
+    <field name="name">shift.statistik.list</field>
+    <field name="model">shift.statistik</field>
+    <field name="arch" type="xml">
+        <list string="Statistik Shift Mingguan">
+            <field name="name"/>
+            <field name="shift_pagi"/>
+            <field name="shift_sore"/>
+            <field name="shift_malam"/>
+            <field name="shift_carter"/>
+            <field name="shift_oncall"/>
+            <field name="total_shift"/>
+            <field name="hadir"/>
+            <field name="terlambat"/>
+            <field name="absen"/>
+            <field name="overtime"/>
+        </list>
+    </field>
+</record>
+
+    <!-- Graph View -->
+    <record id="view_shift_statistik_graph" model="ir.ui.view">
+    <field name="name">shift.statistik.graph</field>
+    <field name="model">shift.statistik</field>
+    <field name="arch" type="xml">
+        <graph string="Statistik Visual Shift" type="bar">
+            <field name="name" type="row"/>
+            <field name="shift_pagi"/>
+            <field name="shift_sore"/>
+            <field name="shift_malam"/>
+            <field name="shift_carter"/>
+            <field name="shift_oncall"/>
+            <field name="hadir"/>
+            <field name="terlambat"/>
+            <field name="absen"/>
+            <field name="overtime"/>
+        </graph>
+    </field>
+</record>
+
+
+    <!-- Action -->
+    <record id="action_shift_statistik" model="ir.actions.act_window">
+        <field name="name">Shift statistics</field>
+        <field name="res_model">shift.statistik</field>
+        <field name="view_mode">graph</field>
+        <field name="help" type="html">
+            <p>Statistik jumlah shift per karyawan selama 7 hari terakhir.</p>
+        </field>
+    </record>
+
+</odoo>

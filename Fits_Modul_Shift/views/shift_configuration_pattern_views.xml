@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Form & list view untuk Shift Pattern -->
+        <record id="view_shift_pattern_list" model="ir.ui.view">
+            <field name="name">shift.configuration.pattern.list</field>
+            <field name="model">shift.configuration.pattern</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="work_days"/>
+                    <field name="off_days"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="view_shift_pattern_form" model="ir.ui.view">
+            <field name="name">shift.configuration.pattern.form</field>
+            <field name="model">shift.configuration.pattern</field>
+            <field name="arch" type="xml">
+                <form string="Shift Pattern">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="work_days"/>
+                            <field name="off_days"/>
+                            <field name="shift_ids" widget="many2many_tags"/>
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action dan Menu -->
+        <record id="action_shift_pattern" model="ir.actions.act_window">
+            <field name="name">Shift Patterns</field>
+            <field name="res_model">shift.configuration.pattern</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+     
+    </data>
+</odoo>

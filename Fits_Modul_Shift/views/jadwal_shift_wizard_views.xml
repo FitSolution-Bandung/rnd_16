@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Form View Wizard -->
+<record id="view_jadwal_shift_wizard_form" model="ir.ui.view">
+    <field name="name">jadwal.shift.wizard.form</field>
+    <field name="model">jadwal.shift.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Bulk Entry Schedule Shift" translate="false">
+            <group>
+                <field name="tanggal_mulai"/>
+                <field name="tanggal_selesai"/>
+            </group>
+            <group>
+                <field name="shift_ids" widget="many2many_tags" domain="[('aktif','=',True)]"/>
+                <!-- <field name="mode_kerja"/> -->
+            </group>
+            <group>
+                <field name="day_ids"  widget="many2many_tags" />
+            </group>
+            <group>
+                <field name="department_ids" widget="many2many_tags"/>
+            </group>
+            <group>
+                <field name="gender_ids" widget="many2many_tags"/>
+            </group>
+            <group>
+                <field name="tag_ids" widget="many2many_tags"/>
+            </group>
+            <!-- <group>
+                <field name="pattern_type"/>
+            </group> -->
+            <footer>
+                <button string="Make a schedule" type="object" name="action_create_shifts" class="btn-primary"/>
+                <!-- <button name="print_pdf" type="object" string="Print Schedule" class="btn-secondary" groups="Fits_Modul_Shift.group_shifting_manager"/> -->
+                <button string="Cancelled" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<record id="action_jadwal_shift_wizard" model="ir.actions.act_window">
+    <field name="name">Bulk Entry Schedule Shift</field>
+    <field name="res_model">jadwal.shift.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+</record>
+
+</odoo>

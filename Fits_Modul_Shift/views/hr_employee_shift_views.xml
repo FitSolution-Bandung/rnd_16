@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Inherit HR Employee Form -->
+    <record id="view_hr_employee_form_inherit_shift" model="ir.ui.view">
+        <field name="name">hr.employee.form.inherit.shift</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <!-- Cari field user_id di tab Settings -->
+            <xpath expr="//page[@name='hr_settings']" position="inside">
+                <group string="Shift Configuration" colspan="2">
+                  <group>
+                    <field name="shift_config_id"/>
+                    <field name="shift_start_date"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>

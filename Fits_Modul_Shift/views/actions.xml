@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Action: Configurasi Shift -->
+        <record id="action_shift" model="ir.actions.act_window">
+            <field name="name">Shift</field>
+            <field name="res_model">shift.karyawan</field> <!-- Ganti jika modelnya berbeda -->
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+
+        <!-- Action: Jadwal Shift -->
+        <record id="action_jadwal_shift" model="ir.actions.act_window">
+            <field name="name">Jadwal Shift</field>
+            <field name="res_model">jadwal.shift.karyawan</field> <!-- Ganti jika modelnya berbeda -->
+            <field name="view_mode">list,form</field>
+        </record>
+
+         <record id="action_calender_view" model="ir.actions.act_window">
+            <field name="name">Jadwal Shift</field>
+            <field name="res_model">jadwal.shift.karyawan</field>
+            <field name="view_mode">calendar,list,form,kanban</field>
+        </record>
+
+         <record id="action_request_shift" model="ir.actions.act_window">
+            <field name="name">Shift request</field>
+            <field name="res_model">shift.request</field> <!-- Ganti jika modelnya berbeda -->
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Action: Tukar Shift -->
+        <record id="action_tukar_shift" model="ir.actions.act_window">
+            <field name="name">Switch Shift</field>
+            <field name="res_model">tukar.shift.karyawan</field> <!-- Ganti jika modelnya berbeda -->
+            <field name="view_mode">list,form</field>
+        </record>
+       
+        <record id="action_riwayat_shift" model="ir.actions.act_window">
+            <field name="name">Riwayat Shift</field>
+            <field name="res_model">riwayat.shift.karyawan</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <record id="action_shift_statistik" model="ir.actions.act_window">
+            <field name="name">Statistik Shift</field>
+            <field name="res_model">shift.statistik</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+      <record id="action_shift_laporan" model="ir.actions.act_window">
+        <field name="name">Laporan Shift</field>
+        <field name="res_model">shift.laporan</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+        
+        <!-- ✅ Action: Report Jadwal Wizard -->
+        <record id="action_report_jadwal_wizard" model="ir.actions.act_window">
+            <field name="name">Report Jadwal Shift</field>
+            <field name="res_model">report.jadwal.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="action_shift_pattern" model="ir.actions.act_window">
+            <field name="name">Shift Patterns</field>
+            <field name="res_model">shift.configuration.pattern</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+    </data>
+</odoo>
